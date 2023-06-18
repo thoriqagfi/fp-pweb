@@ -86,17 +86,17 @@
         <div class="admission-form d-flex justify-content-center">
             <div class="col-md-6 col-sm-8 my-auto border rounded p-5">
                 <h2>Sign Up</h2>
-                <form>
+                <form action="signup_proses.php" method="POST">
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Enter your name">
+                        <input type="text" class="form-control" name="nama" id="nama" placeholder="Enter your name">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
                         <label for="email">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
                     </div>
-                    <button type="submit" class="btn btn-primary submit-button">Sign Up</button>
-                    <p class="mt-1">Already have an accout? <a href="login.php">login</a></p>
+                    <button type="submit" class="btn btn-primary submit-button" name="signup">Sign Up</button>
+                    <p class="mt-1">Already have an account? <a href="login.php">login</a></p>
                 </form>
             </div>
         </div>

@@ -93,7 +93,7 @@
                         <label for="email">Password</label>
                         <input type="password" class="form-control" id="password" placeholder="Enter your password">
                     </div>
-                    <button type="submit" class="btn btn-primary submit-button">Sign Up</button>
+                    <button type="submit" class="btn btn-primary submit-button">Login</button>
                     <p class="mt-1">Don't have and account? <a href="login.php">register</a></p>
                 </form>
             </div>
