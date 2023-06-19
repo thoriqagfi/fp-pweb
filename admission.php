@@ -38,6 +38,12 @@
             max-height: 93vh;
             overflow: hidden;
         }
+        .course-card {
+            background-image: url("https://img.freepik.com/premium-vector/white-abstract-background-with-hexagon-pattern-style-seamless-concept_7505-1698.jpg?w=1380");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
 
         .partner-image {
             width: 10rem;
@@ -98,8 +104,8 @@
             <h1>Admission</h1>
             <div class="banner-overlay"></div>
         </div>
-        <div class="admission-form d-flex justify-content-center">
-            <div class="col-md-6 col-sm-8 my-auto border rounded p-5">
+        <div class="admission-form d-flex justify-content-center course-card">
+            <div class="col-md-6 col-sm-8 my-auto border rounded p-5 bg-light">
             <h2>Admission Form</h2>
                 <form action="admission_proses.php" method="POST">
                     <select name="course">
@@ -111,7 +117,7 @@
                                 echo "<option value='".$row['id']."'>".$row['name']."</option>";
                             }
                         ?>
-                    </select>
+                    </select> <br>
                     <button type="submit" class="btn btn-primary submit-button" name="admission">Enroll</button>
                 </form>
             </div>

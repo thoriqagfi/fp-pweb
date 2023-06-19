@@ -51,6 +51,13 @@
             z-index: 1;
         }
 
+        .course-card {
+            background-image: url("https://img.freepik.com/premium-vector/white-abstract-background-with-hexagon-pattern-style-seamless-concept_7505-1698.jpg?w=1380");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -91,8 +98,8 @@
             <h2>Sign Up</h2>
             <div class="banner-overlay"></div>
         </div>
-        <div class="admission-form d-flex justify-content-center">
-            <div class="col-md-6 col-sm-8 my-auto border rounded p-5">
+        <div class="admission-form d-flex justify-content-center course-card">
+            <div class="col-md-6 col-sm-8 my-auto border rounded p-5 bg-light">
                 <h2>Sign Up</h2>
                 <form action="signup_proses.php" method="POST">
                     <div class="form-group">
