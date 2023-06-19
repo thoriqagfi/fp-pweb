@@ -83,7 +83,12 @@
     </style>
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
+    <?php
+        include 'navbar.php';
+        if(isset($_SESSION['loggedIn'])){
+            header('Location: index.php?status=alreadyLog');
+        }
+    ?>
     <div class="d-flex flex-wrap">
         <div class="banner">
             <h2>Login</h2>

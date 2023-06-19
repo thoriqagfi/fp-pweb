@@ -37,5 +37,4 @@ if(isset($_POST['contact'])) {
 } else {
     die("Akses dilarang...");
 }
-
 ?>

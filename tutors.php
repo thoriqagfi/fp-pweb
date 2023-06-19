@@ -19,14 +19,19 @@
     <?php include 'navbar.php'; ?>
 
     <div class="container mt-4">
-
+        <?php
+        // $user = mysqli_real_escape_string($db, $_SESSION['name']);
+        if(isset($_SESSION['name']) && $_SESSION['name'] == 'admin'){
+            echo('<a href="tutor-form.php" class="btn btn-primary">Add Tutor</a>');
+        }
+        ?>
         <h2 class="my-3">Tutors</h2>
         <div class="row">
 
         <?php
             $sql = "SELECT * FROM tutors";
             $query = mysqli_query($db, $sql);
-            
+
                 while($row = mysqli_fetch_array($query)){
                     echo "<div class='col-lg-4 mb-4'>";
                     echo "<div class='card tutor-card'>";
@@ -35,7 +40,7 @@
                     echo "<h5 class='card-title text-dark'>".$row['name']."</h5>";
                     echo "<p class='text-dark'>Alumni: ".$row['alumni_universitas']."</p>";
                     echo " </div></div></div>";
-                }	
+                }
             ?>
             <!--
             <div class="col-lg-4 mb-4">

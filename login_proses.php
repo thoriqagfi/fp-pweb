@@ -20,6 +20,7 @@ if(isset($_POST['login'])) {
         $row = mysqli_fetch_array($result);
         if($row['password'] == $password){
             $_SESSION['username'] = $row['id'];
+            $_SESSION['name'] = $row['name'];
             $_SESSION['loggedIn'] = true;
             // jika berhasil, alihkan ke halaman sukses.php
             header('Location: index.php?status=logsuc');

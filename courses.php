@@ -1,4 +1,6 @@
-<?php include 'koneksi.php'; ?>
+<?php
+include 'koneksi.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +34,15 @@
 <body>
     <?php include 'navbar.php'; ?>
 
+    <!-- * Add course while username = "admin" -->
+    <div class="container my-4 ">
+        <?php
+        // $user = mysqli_real_escape_string($db, $_SESSION['name']);
+        if(isset($_SESSION['name']) && $_SESSION['name'] == 'admin'){
+            echo('<a href="course-form.php" class="btn btn-primary">Add Course</a>');
+        }
+        ?>
+    </div>
     <div class="container mt-4">
         <h2 class="my-4">Courses</h2>
         <div class="row">
@@ -39,7 +50,7 @@
         <?php
         $sql = "SELECT * FROM courses";
         $query = mysqli_query($db, $sql);
-        
+
             while($row = mysqli_fetch_array($query)){
                 echo "<div class='col-lg-12 mb-4'>";
                 echo "<div class='card course-card'>";
@@ -48,7 +59,7 @@
                 echo "<h6 class='card-subtitle mb-2 text-muted'>Rp".$row['harga']."</h6>";
                 echo "<p class='card-text'>".$row['deskripsi']."</p>";
                 echo " </div></div></div>";
-            }	
+            }
         ?>
         </div>
     </div>
