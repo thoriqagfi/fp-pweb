@@ -74,25 +74,16 @@
             <div class="banner-overlay"></div>
         </div>
         <div class="container-partner">
-            <div class="row grid p-5">
-                <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"
-                    alt="Partner 1" class="partner-image">
-
-                <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"
-                    alt="Partner 2" class="partner-image">
-
-                <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"
-                    alt="Partner 3" class="partner-image">
-
-
-                <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"
-                    alt="Partner 4" class="partner-image">
-
-                <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"
-                    alt="Partner 5" class="partner-image">
-
-                <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"
-                    alt="Partner 6" class="partner-image">
+            <div class="row grid gap-5 p-5">
+                <?php
+                    $sql = "SELECT * FROM partners";
+                    $query = mysqli_query($db, $sql);
+                    
+                    while($row = mysqli_fetch_array($query)){
+                        echo "<img src='data:image/png;base64,".base64_encode($row['foto'])."'
+                        alt='Partner 1' class='partner-image'>";
+                    }	
+                ?>
 
             </div>
         </div>
