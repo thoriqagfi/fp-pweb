@@ -1,3 +1,4 @@
+<?php include 'koneksi.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,33 +35,21 @@
     <div class="container mt-4">
         <h2 class="my-4">Courses</h2>
         <div class="row">
-            <div class="col-lg-12 mb-4">
-                <div class="card course-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Course 1</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Tutor 1</h6>
-                        <p class="card-text">Description of course 1.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12 mb-4">
-                <div class="card course-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Course 2</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Tutor 2</h6>
-                        <p class="card-text">Description of course 2.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12 mb-4">
-                <div class="card course-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Course 3</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Tutor 3</h6>
-                        <p class="card-text">Description of course 3.</p>
-                    </div>
-                </div>
-            </div>
+
+        <?php
+        $sql = "SELECT * FROM courses";
+        $query = mysqli_query($db, $sql);
+        
+            while($row = mysqli_fetch_array($query)){
+                echo "<div class='col-lg-12 mb-4'>";
+                echo "<div class='card course-card'>";
+                echo " <div class='card-body'>";
+                echo "<h5 class='card-title'>".$row['name']."</h5>";
+                echo "<h6 class='card-subtitle mb-2 text-muted'>Rp".$row['harga']."</h6>";
+                echo "<p class='card-text'>".$row['deskripsi']."</p>";
+                echo " </div></div></div>";
+            }	
+        ?>
         </div>
     </div>
 

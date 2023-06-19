@@ -1,3 +1,4 @@
+<?php include 'koneksi.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +46,6 @@
 </head>
 <body>
 	<?php include 'navbar.php'; ?>
-
     <div class="banner">
         <h1>Welcome to<br>AGFI Operation</h1>
     </div>
@@ -53,6 +53,20 @@
     <div class="container mt-4">
 		<h3 class="my-4">Available Courses</h3>
         <div class="row flex-row">
+            <?php
+                $sql = "SELECT * FROM courses LIMIT 3";
+                $query = mysqli_query($db, $sql);
+            
+                while($row = mysqli_fetch_array($query)){
+                    echo "<div class='col-lg-3 mb-4'>";
+                    echo "<div class='card course-card'>";
+                    echo '<div class="card-body">';
+                    echo "<h5 class='card-title'>".$row['name']."</h5>";
+                    echo "<p class='card-text'>".$row['deskripsi']."</p>";
+                    echo '</div></div></div>';
+                }	
+            ?>
+            <!--
             <div class="col-lg-3 mb-4">
                 <div class="card course-card">
                     <div class="card-body">
@@ -79,7 +93,7 @@
                         <p class="card-text">Description of course 3.</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="col-lg-3">
 				<a href="courses.php">
                 <div class="card explore-card">
@@ -92,7 +106,21 @@
             </div>
         </div>
     </div>
-
+    <?php
+        if(isset($_GET['status'])){
+            if($_GET['status'] == 'logsuc'){
+                echo '<script>alert("Login berhasil");</script>';
+            } else if($_GET['status'] == 'logfail'){
+                echo '<script>alert("Login gagal");</script>';
+            }
+            else if($_GET['status'] == 'addfail'){
+                echo '<script>alert("Admission gagal");</script>';
+            }
+            else if($_GET['status'] == 'noLog'){
+                echo '<script>alert("Need to login for admission!");</script>';
+            }
+        }
+    ?>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

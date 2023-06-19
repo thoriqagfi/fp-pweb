@@ -1,3 +1,4 @@
+<?php include("koneksi.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,28 +101,18 @@
         <div class="admission-form d-flex justify-content-center">
             <div class="col-md-6 col-sm-8 my-auto border rounded p-5">
             <h2>Admission Form</h2>
-                <form>
-                <div class="form-group mt-4 border rounded p-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="check1">
-                        <label class="form-check-label" for="check1">
-                            Course Bahasa Indonesia
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="check2">
-                        <label class="form-check-label" for="check2">
-                            Course Data Science
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="check3">
-                        <label class="form-check-label" for="check3">
-                            Course Front End
-                        </label>
-                    </div>
-                </div>
-                    <button type="submit" class="btn btn-primary submit-button">Enroll</button>
+                <form action="admission_proses.php" method="POST">
+                    <select name="course">
+                        <?php
+                            $sql = "SELECT * FROM courses";
+                            $result = mysqli_query($db, $sql);
+
+                            while ($row = mysqli_fetch_array($result)) {
+                                echo "<option value='".$row['id']."'>".$row['name']."</option>";
+                            }
+                        ?>
+                    </select>
+                    <button type="submit" class="btn btn-primary submit-button" name="admission">Enroll</button>
                 </form>
             </div>
         </div>

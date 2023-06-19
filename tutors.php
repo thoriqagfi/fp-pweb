@@ -1,3 +1,4 @@
+<?php include 'koneksi.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,27 +13,31 @@
             height: 300px;
         }
 
-        .tutor-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(255, 255, 255, 1);
-            opacity: 0.5;
-        }
-        .card-title{
-            
-        }
     </style>
 </head>
 <body>
     <?php include 'navbar.php'; ?>
 
     <div class="container mt-4">
+
         <h2 class="my-3">Tutors</h2>
         <div class="row">
+
+        <?php
+            $sql = "SELECT * FROM tutors";
+            $query = mysqli_query($db, $sql);
+            
+                while($row = mysqli_fetch_array($query)){
+                    echo "<div class='col-lg-4 mb-4'>";
+                    echo "<div class='card tutor-card'>";
+                    echo "<div class='card-body text-center text-white'>";
+                    echo "<img src='data:image/png;base64,".base64_encode($row['foto'])."' class='rounded-circle mb-3' alt='Tutor 1' width='210'/>";
+                    echo "<h5 class='card-title text-dark'>".$row['name']."</h5>";
+                    echo "<p class='text-dark'>Alumni: ".$row['alumni_universitas']."</p>";
+                    echo " </div></div></div>";
+                }	
+            ?>
+            <!--
             <div class="col-lg-4 mb-4">
                 <div class="card tutor-card">
                     <div class="card-body text-center text-white">
@@ -41,6 +46,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4 mb-4">
                 <div class="card tutor-card">
                     <div class="card-body text-center text-white">
@@ -56,7 +62,7 @@
                         <h5 class="card-title text-dark">Tutor 3</h5>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 

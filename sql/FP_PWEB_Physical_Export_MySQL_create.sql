@@ -4,7 +4,6 @@ CREATE TABLE User (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(30) NOT NULL,
     age int NOT NULL,
-    foto longblob NOT NULL,
     email varchar(50) NOT NULL,
     password varchar(50) NOT NULL,
     PRIMARY KEY (id)
@@ -12,15 +11,16 @@ CREATE TABLE User (
 
 -- Table: admission
 CREATE TABLE admission (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     tanggal_daftar date  NOT NULL,
     User_id int  NOT NULL,
+    courses_id int NOT NULL,
     CONSTRAINT admission_pk PRIMARY KEY (id)
 );
 
 -- Table: contact
 CREATE TABLE contact (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     judul varchar(128)  NOT NULL,
     pesan longtext  NOT NULL,
     User_id int  NOT NULL,
@@ -29,18 +29,17 @@ CREATE TABLE contact (
 
 -- Table: courses
 CREATE TABLE courses (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     name varchar(30)  NOT NULL,
     deskripsi varchar(255)  NOT NULL,
     harga int  NOT NULL,
     durasi time  NOT NULL,
-    admission_id int  NOT NULL,
     CONSTRAINT courses_pk PRIMARY KEY (id)
 );
 
 -- Table: partners
 CREATE TABLE partners (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     name varchar(50)  NOT NULL,
     description longtext  NOT NULL,
     CONSTRAINT partners_pk PRIMARY KEY (id)
@@ -55,10 +54,9 @@ CREATE TABLE partners_courses (
 
 -- Table: students
 CREATE TABLE students (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     name int  NOT NULL,
     age int  NOT NULL,
-    foto char(30)  NOT NULL,
     CONSTRAINT students_pk PRIMARY KEY (id)
 );
 
@@ -71,7 +69,7 @@ CREATE TABLE students_courses (
 
 -- Table: tutors
 CREATE TABLE tutors (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     name varchar(50)  NOT NULL,
     age int  NOT NULL,
     alumni_universitas varchar(50)  NOT NULL,
@@ -96,8 +94,8 @@ ALTER TABLE contact ADD CONSTRAINT contact_User FOREIGN KEY contact_User (User_i
     REFERENCES User (id);
 
 -- Reference: courses_admission (table: courses)
-ALTER TABLE courses ADD CONSTRAINT courses_admission FOREIGN KEY courses_admission (admission_id)
-    REFERENCES admission (id);
+ALTER TABLE admission ADD CONSTRAINT courses_admission FOREIGN KEY courses_admission (courses_id)
+    REFERENCES courses (id);
 
 -- Reference: partners_courses_courses (table: partners_courses)
 ALTER TABLE partners_courses ADD CONSTRAINT partners_courses_courses FOREIGN KEY partners_courses_courses (courses_id)

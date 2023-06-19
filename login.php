@@ -77,7 +77,6 @@
 </head>
 <body>
     <?php include 'navbar.php'; ?>
-
     <div class="d-flex flex-wrap">
         <div class="banner">
             <h2>Login</h2>
@@ -86,15 +85,15 @@
         <div class="admission-form d-flex justify-content-center">
             <div class="col-md-6 col-sm-8 my-auto border rounded p-5">
                 <h2>Login</h2>
-                <form>
+                <form action="login_proses.php" method="POST">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                        <label for="email">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
                     </div>
-                    <button type="submit" class="btn btn-primary submit-button">Login</button>
-                    <p class="mt-1">Don't have and account? <a href="login.php">register</a></p>
+                    <button type="submit" class="btn btn-primary submit-button" name="login">Login</button>
+                    <p class="mt-1">Don't have and account? <a href="signup.php">register</a></p>
                 </form>
             </div>
         </div>

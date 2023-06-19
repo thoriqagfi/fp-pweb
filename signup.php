@@ -94,6 +94,8 @@
                         <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
                         <label for="email">Password</label>
                         <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" name="age" id="age" placeholder="Enter your age">
                     </div>
                     <button type="submit" class="btn btn-primary submit-button" name="signup">Sign Up</button>
                     <p class="mt-1">Already have an account? <a href="login.php">login</a></p>
