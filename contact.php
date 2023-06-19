@@ -33,6 +33,12 @@
             }
         }
 
+        .course-card {
+            background-image: url("https://img.freepik.com/premium-vector/white-abstract-background-with-hexagon-pattern-style-seamless-concept_7505-1698.jpg?w=1380");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
         .banner h2 {
             position: absolute;
             margin: 0;
@@ -84,8 +90,8 @@
             <h2>Give Us Your Feedback</h2>
             <div class="banner-overlay"></div>
         </div>
-        <div class="admission-form d-flex justify-content-center">
-            <div class="col-md-6 col-sm-8 my-auto border rounded p-5">
+        <div class="admission-form d-flex justify-content-center course-card">
+            <div class="col-md-6 col-sm-8 my-auto border rounded p-5 bg-light">
                 <h2>Contact Us!</h2>
                 <form action="contact-proses.php" method="post">
                     <div class="form-group">
