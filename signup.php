@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    include("koneksi.php");
+    if(isset($_SESSION['loggedIn'])){
+        header('Location: index.php?status=alreadyLog');
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

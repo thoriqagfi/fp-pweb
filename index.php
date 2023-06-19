@@ -56,7 +56,7 @@
             <?php
                 $sql = "SELECT * FROM courses LIMIT 3";
                 $query = mysqli_query($db, $sql);
-            
+
                 while($row = mysqli_fetch_array($query)){
                     echo "<div class='col-lg-3 mb-4'>";
                     echo "<div class='card course-card'>";
@@ -64,7 +64,7 @@
                     echo "<h5 class='card-title'>".$row['name']."</h5>";
                     echo "<p class='card-text'>".$row['deskripsi']."</p>";
                     echo '</div></div></div>';
-                }	
+                }
             ?>
             <!--
             <div class="col-lg-3 mb-4">
@@ -119,6 +119,8 @@
             else if($_GET['status'] == 'noLog'){
                 echo '<script>alert("Need to login for admission!");</script>';
             }
+            else if($_GET['status'] == 'alreadyLog') {
+                echo '<script>alert("Already logged in!");</script>';}
         }
     ?>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

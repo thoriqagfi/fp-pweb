@@ -1,3 +1,4 @@
+<?php include("koneksi.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,14 +87,14 @@
         <div class="admission-form d-flex justify-content-center">
             <div class="col-md-6 col-sm-8 my-auto border rounded p-5">
                 <h2>Contact Us!</h2>
-                <form>
+                <form action="contact-proses.php" method="post">
                     <div class="form-group">
                         <label for="subject">Subject</label>
-                        <input type="text" class="form-control" id="subject" placeholder="Enter the subject">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Enter the subject">
                         <label for="message">Message</label>
-                        <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+                        <textarea class="form-control" name="message" id="message" rows="3" placeholder="Enter your message"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary submit-button">Submit</button>
+                    <button type="submit" name="contact" class="btn btn-primary submit-button">Submit</button>
                 </form>
             </div>
         </div>

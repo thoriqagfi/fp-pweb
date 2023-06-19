@@ -24,12 +24,12 @@ if(isset($_POST['login'])) {
             // jika berhasil, alihkan ke halaman sukses.php
             header('Location: index.php?status=logsuc');
         }else{
-            header('Location: index.php?status=logfail');
+            header('Location: login.php?status=logfail');
         }
-        
+
     } else {
         // jika gagal, alihkan kembali ke halaman sebelumnya dengan status gagal
-        header('Location: index.php?status=logfailed');
+        header('Location: login.php?status=logfail');
     }
 
     // tutup statement
