@@ -3,6 +3,7 @@ include 'koneksi.php';
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>AGFI Operation - Courses</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -45,6 +46,7 @@ include 'koneksi.php';
             text-align: left;
             z-index: 1;
         }
+
         .course-card {
             background-image: url("https://img.freepik.com/premium-vector/white-abstract-background-with-hexagon-pattern-style-seamless-concept_7505-1698.jpg?w=1380");
             background-size: cover;
@@ -69,6 +71,7 @@ include 'koneksi.php';
         }
     </style>
 </head>
+
 <body>
     <?php include 'navbar.php'; ?>
 
@@ -76,8 +79,8 @@ include 'koneksi.php';
     <div class="container my-4 ">
         <?php
         // $user = mysqli_real_escape_string($db, $_SESSION['name']);
-        if(isset($_SESSION['name']) && $_SESSION['name'] == 'admin'){
-            echo('<a href="course-form.php" class="btn btn-primary">Add Course</a>');
+        if (isset($_SESSION['name']) && $_SESSION['name'] == 'admin') {
+            echo ('<a href="course-form.php" class="btn btn-primary">Add Course</a>');
         }
         ?>
     </div>
@@ -85,42 +88,43 @@ include 'koneksi.php';
         <h2 class="my-4">Courses</h2>
         <div class="row">
 
-        <?php
-        $sql = "SELECT * FROM courses";
-        $query = mysqli_query($db, $sql);
-
-            while($row = mysqli_fetch_array($query)){
-                echo "<div class='col-lg-12 mb-4'>";
-                echo "<div class='card course-card'>";
-                echo " <div class='card-body'>";
-                echo "<h5 class='card-title'>".$row['name']."</h5>";
-                echo "<h6 class='card-subtitle mb-2 text-muted'>Rp".$row['harga']."</h6>";
-                echo "<p class='card-text'>".$row['deskripsi']."</p>";
-                echo " </div></div></div>";
-            }
-        ?>
-        </div>
-    </div>
             <?php
             $sql = "SELECT * FROM courses";
             $query = mysqli_query($db, $sql);
 
-                while($row = mysqli_fetch_array($query)){
-                    echo "<div class='col-lg-12 mb-4'>";
-                    echo "<div class='card course-card'>";
-                    echo " <div class='card-body'>";
-                    echo "<h5 class='card-title'>".$row['name']."</h5>";
-                    echo "<h6 class='card-subtitle mb-2 text-muted'>Rp".$row['harga']."</h6>";
-                    echo "<p class='card-text'>".$row['deskripsi']."</p>";
-                    echo " </div></div></div>";
-                }
+            while ($row = mysqli_fetch_array($query)) {
+                echo "<div class='col-lg-12 mb-4'>";
+                echo "<div class='card course-card'>";
+                echo " <div class='card-body'>";
+                echo "<h5 class='card-title'>" . $row['name'] . "</h5>";
+                echo "<h6 class='card-subtitle mb-2 text-muted'>Rp" . $row['harga'] . "</h6>";
+                echo "<p class='card-text'>" . $row['deskripsi'] . "</p>";
+                echo " </div></div></div>";
+            }
             ?>
-            </div>
         </div>
+    </div>
+
+    <!-- // $sql = "SELECT * FROM courses";
+    // $query = mysqli_query($db, $sql);
+
+    // while ($row = mysqli_fetch_array($query)) {
+    //     echo "<div class='col-lg-12 mb-4'>";
+    //     echo "<div class='card course-card'>";
+    //     echo " <div class='card-body'>";
+    //     echo "<h5 class='card-title'>" . $row['name'] . "</h5>";
+    //     echo "<h6 class='card-subtitle mb-2 text-muted'>Rp" . $row['harga'] . "</h6>";
+    //     echo "<p class='card-text'>" . $row['deskripsi'] . "</p>";
+    //     echo " </div></div></div>";
+    // } -->
+
+    </div>
+    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
